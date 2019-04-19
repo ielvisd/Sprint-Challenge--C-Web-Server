@@ -12,8 +12,7 @@
 /**
  * Struct to hold all three pieces of a URL
  */
-typedef struct urlinfo_t
-{
+typedef struct urlinfo_t {
   char *hostname;
   char *port;
   char *path;
@@ -50,29 +49,27 @@ urlinfo_t *parse_url(char *url)
   // IMPLEMENT ME! //
   ///////////////////
 
-  // 1. Use strchr to find the first backslash in the URL (this is assuming there is no http:// or https:// in the URL).
-  // 2. Set the path pointer to 1 character after the spot returned by strchr.
-  // path = slash + 1;
-  // 3. Overwrite the backslash with a '\0' so that we are no longer considering anything after the backslash.
-  parse_finder = strchr(hostname, '/');
-  path = parse_finder + 1;
-  *parse_finder = '\0';
+    // 1. Use strchr to find the first backslash in the URL (this is assuming there is no http:// or https:// in the URL).
+    // 2. Set the path pointer to 1 character after the spot returned by strchr.
+    // path = slash + 1;
+    // 3. Overwrite the backslash with a '\0' so that we are no longer considering anything after the backslash.
+    char *parse_finder = strchr(hostname, '/');
+    path = parse_finder + 1;
+    *parse_finder = '\0';
 
-  // backslash with a '\0' so that we are no longer considering anything after the backslash.
-  // 4. Use strchr to find the first colon in the URL.
-  // 5. Set the port pointer to 1 character after the spot returned by strchr.
-  // 6. Overwrite the colon with a '\0' so that we are just left with the hostname.
 
-  // look for the port number; default to 80 if not specified
-  parse_finder = strchr(hostname, ':');
-  port = parse_finder + 1;
-  *parse_finder = '\0';
+    // 4. Use strchr to find the first colon in the URL.
+    // 5. Set the port pointer to 1 character after the spot returned by strchr.
+    // 6. Overwrite the colon with a '\0' so that we are just left with the hostname.
+    
+    parse_finder = strchr(hostname, ':');
+    port = parse_finder + 1;
+    *parse_finder = '\0';
 
-  // Assign each of these to the appropriate field in the `urlinfo_t` struct and return it from the `parse_url()` function.
 
-  urlinfo->hostname = hostname;
-  urlinfo->port = port;
-  urlinfo->path = path;
+    urlinfo->hostname = hostname;
+    urlinfo->port = port;
+    urlinfo->path = path;
 
   return urlinfo;
 }
@@ -97,52 +94,42 @@ int send_request(int fd, char *hostname, char *port, char *path)
   // IMPLEMENT ME! //
   ///////////////////
 
-  eturn 0;
+  return 0;
 }
 
-int main(int argc, har *argv[])
-{
-  int sockf int sockf
-      i
-          n t soc kfi
-              n t soc kfi
-                  n t soc kfi
-                      n t soc kf,
-      numby tes;
+int main(int argc, char *argv[])
+{  
+  int sockfd, numbytes;  
   char buf[BUFSIZE];
 
-  if (argc 
-  2 *1. Parse the input URL 2. Initializcket` function from lib.c
+  if (argc != 2) {
+    fprintf(stderr,"usage: client HOSTNAME:PORT/PATH\n");
+    exit(1);
+  }
+
+  /*
+    1. Parse the input URL
+    2. Initialize a socket by calling the `get_socket` function from lib.c
     3. Call `send_request` to construct the request and send it
     4. Call `recv` in a loop until there is no more data to receive from the server. Print the received response to stdout.
     5. Clean up any allocated memory and open file descriptors.
-      pars1]    pars1]///////
-  // IMPL MENT ME! //
-  ////  /////////)
+  */
 
-  el/)
-    printf(a\nv);
+  ///////////////////
+  // IMPLEMENT ME! //
+  ///////////////////
 
-  printf(argv[1]);
-  parse_url(argv[1]);
-  //
-  printf(a\nv);
-  // p
-  rntf(argv[1]);
-           rse_url(argargv[1]v;
-        return 0[
-}1]);
-se
-{
-  /
+  else {
+    // 1. Parse the input URL
+    // parse_url();
+    printf("HERE!\n");
+    // printf(argv[1]);
+    parse_url(argv[1]);
+
+    // 2. Initialize a socket by calling the `get_socket` function from lib.c
+    // 3. Call `send_request` to construct the request and send it
+    // 4. Call `recv` in a loop until there is no more data to receive from the server. Print the received response to stdout.
+    // 5. Clean up any allocated memory and open file descriptors.
 }
-2. In
-    aiclize a socket by c ltinirtheeturn 0;
-E
-        l t i.prt "! /
-            .i skylg /
-    taey _c /
+  return 0;
 }
-/ 2. Initialize a socket by calling the // 2. Initialize a socket by calling the `get_socket` function from lib.c
-    // 5.
-  
